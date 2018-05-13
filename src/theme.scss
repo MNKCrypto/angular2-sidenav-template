@@ -1,24 +1,94 @@
-@import '~@angular/material/theming';
-@include mat-core();
+//Custom color palette
+//Color-generator: http://mcg.mbitson.com/
+$md-unicorn: (
+    50 : #ffe3f2,
+    100 : #ffb9df,
+    200 : #ff8ac9,
+    300 : #ff5bb3,
+    400 : #ff37a3,
+    500 : #ff1493,
+    600 : #ff128b,
+    700 : #ff0e80,
+    800 : #ff0b76,
+    900 : #ff0664,
+    A100 : #ffffff,
+    A200 : #fff3f7,
+    A400 : #ffc0d5,
+    A700 : #ffa7c4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-pastelblue: (
+    50 : #ecf3f4,
+    100 : #cfe2e3,
+    200 : #afcfd0,
+    300 : #8fbbbd,
+    400 : #77adae,
+    500 : #5f9ea0,
+    600 : #579698,
+    700 : #4d8c8e,
+    800 : #438284,
+    900 : #327073,
+    A100 : #bffcff,
+    A200 : #8cfaff,
+    A400 : #59f7ff,
+    A700 : #40f6ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
 
 //Normal Theme
-//Defining colors
-$app-primary: mat-palette($mat-pink, 500, 900, A100);
-$app-accent:  mat-palette($mat-blue-grey);
-$app-warn:    mat-palette($mat-deep-orange);
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$unicorn-app-primary: mat-palette($md-unicorn, 500, 900, A100);
+$unicorn-app-accent:  mat-palette($mat-blue-grey);
+$unicorn-app-warn:    mat-palette($mat-deep-orange);
 
 //build theme
-$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+$unicorn-app-theme: mat-light-theme($unicorn-app-primary, $unicorn-app-accent, $unicorn-app-warn);
 
-//inject theme
-@include angular-material-theme($app-theme);
 
-//Dark or alternate Theme
-.dark-theme {
-  $dark-primary: mat-palette($mat-light-blue);
-  $dark-accent:  mat-palette($mat-yellow, 400);
 
-  $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
+//dark-unicorn Unicorn
+$dark-unicorn-primary: mat-palette($md-unicorn, 500, 900, A100);
+$dark-unicorn-accent:  mat-palette($mat-yellow, 400);
+$dark-unicorn-warn:    mat-palette($mat-deep-orange);
 
-  @include angular-material-theme($dark-theme);
-}
+$dark-unicorn-theme: mat-dark-theme($dark-unicorn-primary, $dark-unicorn-accent);
+
+
+
+//dark theme
+$dark-primary: mat-palette($mat-blue-grey, 900);
+$dark-accent:  mat-palette($mat-yellow, 400);
+$dark-warn:    mat-palette($mat-deep-orange);
+
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent);

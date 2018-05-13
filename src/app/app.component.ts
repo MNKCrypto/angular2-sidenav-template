@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +9,31 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  currentpage: String = "Home";
+  currentpage = 'Test';
   isDarkTheme = false;
-  title = 'app';
 
-  public constructor(private breakpointObserver: BreakpointObserver) {
-    //TODO dynamic title e.g. LDSS Self Service --> Router with titleService
+  public constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private activatedRoute:ActivatedRoute, 
+    private router: Router) {   
   }
+  ngOnInit(){
+    this.router.events.subscribe
+    ((event) => {
+      if (event instanceof NavigationEnd) {
+          this.currentpage = this.activatedRoute.root.firstChild.snapshot.data['title'];
+          
+      }
+      
+    });
+      
+  }
+
   get isMobile() {
     return this.breakpointObserver.isMatched('(max-width: 600px)');
   }
 
+  logout(){
+    console.log("Demo logout funktion")
+  }
 }

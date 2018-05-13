@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'theme.scss';
 
+//inject theme (as default)
+@include angular-material-theme($unicorn-app-theme);
+
+.dark-theme {
+   @include angular-material-theme($dark-theme);
+}
+
+.dark-unicorn-theme {
+  @include angular-material-theme($dark-unicorn-theme);
+  
+}
 
 body{
     margin: 0px;
@@ -23,7 +37,7 @@ body{
     font-weight: regular;
 }
 
-.p {
+p {
 
     font-family: Roboto;
     font-weight: regular;

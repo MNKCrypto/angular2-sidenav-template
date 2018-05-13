@@ -21,21 +21,22 @@
 
     </button>
     <mat-menu #menu="matMenu">
-      <button #settingsBtn mat-menu-item>
-        <mat-icon><i class="fas fa-wrench fa-lg" data-fa-transform="up-9"></i></mat-icon>
+      <button #settingsBtn mat-menu-item routerLink="/settings" class="app-menu-button" routerLinkActive="active">
+        <mat-icon><i class="fas fa-wrench fa-lg"></i></mat-icon>
         <span>Settings</span>
       </button>
-      <button #logoutBtn mat-menu-item>
-        <mat-icon><i class="fas fa-sign-out-alt fa-lg" data-fa-transform="up-9"></i></mat-icon>
+      <button #logoutBtn mat-menu-item (click)="logout()">
+        <mat-icon><i class="fas fa-sign-out-alt fa-lg"></i></mat-icon>
         <span>Logout</span>
       </button>
     </mat-menu>
   </mat-toolbar>
 
   <mat-sidenav-container fullscreen class="sidenav-container" style="top: 64px !important;">
+    <!--Sidenav provides following modes: pusk, over, side-->
     <mat-sidenav #snav mode="over" class="app-sidenav">
       <mat-nav-list class="all-list">
-          <a #link_home mat-list-item routerLink="/home" class="app-menu-button" routerLinkActive="active" (click)="snav.toggle()">Home</a>
+          <a #linkhome mat-list-item routerLink="/home" class="app-menu-button" routerLinkActive="active" (click)="snav.toggle()">Home</a>
         <!-- Hier Menüpunkte einfügen-->
       </mat-nav-list>
     </mat-sidenav>
