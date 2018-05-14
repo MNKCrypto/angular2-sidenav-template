@@ -1,6 +1,6 @@
 # Sierrazone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+This project is an Template for Angular 6 Sidenav Apps. It provides dynamic Header, Toolbar and demo functions.
 
 ## Development server
 
